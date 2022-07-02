@@ -58,6 +58,7 @@
   display: flex;
   position: relative;
   right: 32px;
+  margin-top: 20px;
 }
 
 .footer-item {

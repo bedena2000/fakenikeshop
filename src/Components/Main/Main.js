@@ -19,7 +19,9 @@ const Main = () => {
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry'
           </p>
-          <button className={`${styles["main-left-btn"]}`}>Shop Page</button>
+          <NavLink to="/shop">
+            <button className={`${styles["main-left-btn"]}`}>Shop Page</button>
+          </NavLink>
         </div>
         <div className={`${styles["main-right"]}`}>
           <img className={`${styles["main-right-image"]}`} src={Image} />
