@@ -1,0 +1,41 @@
+.header {
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-icon {
+  cursor: pointer;
+  font-size: 36px;
+  margin-right: 60px;
+}
+
+.left-part {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  margin-right: 40px;
+  font-size: 22px;
+  color: #363e61;
+  font-weight: 450;
+}
+
+.logo-element {
+  margin-right: 300px;
+}
+
+.right-part {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.right-part-link {
+  font-size: 28px;
+  color: "red";
+}
