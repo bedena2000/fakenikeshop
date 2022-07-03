@@ -29,7 +29,7 @@ export default function MediaCard({ dataInfo }) {
             height: "100%",
             objectFit: "contain",
           }}
-          src={dataInfo.image}
+          src={dataInfo.images}
         />
       </div>
       <div>
@@ -48,7 +48,13 @@ export default function MediaCard({ dataInfo }) {
           </p>
         </div>
         <div>
-          <p>price: ${dataInfo.price} </p>
+          <p
+            style={{
+              marginBottom: "30px",
+            }}
+          >
+            price: ${dataInfo.price}{" "}
+          </p>
           <NavLink
             to="/item"
             style={{

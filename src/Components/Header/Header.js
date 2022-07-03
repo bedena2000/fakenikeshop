@@ -15,16 +15,16 @@ const Header = () => {
         </NavLink>
         <nav className="nav">
           <NavLink className={`${styles["nav-link"]}`} to="/shop">
-            Men
+            Clothes
           </NavLink>
           <NavLink className={`${styles["nav-link"]}`} to="/shop">
-            Women
+            Electronics
           </NavLink>
           <NavLink className={`${styles["nav-link"]}`} to="/shop">
-            Kids
+            Furniture
           </NavLink>
           <NavLink className={`${styles["nav-link"]}`} to="/shop">
-            Trending
+            Shoes
           </NavLink>
         </nav>
       </div>

@@ -4,10 +4,16 @@ import { BiSearchAlt } from "react-icons/bi";
 import Context from "../Context/Context";
 import ItemList from "../Components/ItemList/ItemList";
 
+const findItem = async (name) => {
+  const data = await fetch(name);
+  const result = await data.json();
+  return result;
+};
+
 const ShopPage = () => {
   const { storeData = [], initializeStore } = useContext(Context);
   const [searchText, setSearchText] = useState("");
-  const [resultText, setResultText] = useState("");
+  const [resultText, setResultText] = useState(false);
   const [newArray, setNewArray] = useState([]);
   const handleChange = (event) => {
     const { value } = event.target;
@@ -15,7 +21,7 @@ const ShopPage = () => {
   };
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products`)
+    fetch(`https://api.escuelajs.co/api/v1/products?offset=0&limit=30`)
       .then((res) => res.json())
       .then((json) => initializeStore(json));
   }, []);
@@ -23,23 +29,13 @@ const ShopPage = () => {
   const onBlurText = () => {
     // get items logic
     if (searchText) {
-      setResultText(searchText);
-      let myType = storeData.storeItems.filter((item) =>
-        item.title.includes(searchText.toLowerCase())
-      );
-      console.log(myType);
-      console.log(resultText);
-      console.log(searchText);
-      let allTextFields = storeData.storeItems.filter((item) =>
-        item.title.includes(searchText)
-      );
-      console.log(allTextFields);
-      const newArrayResult = storeData.storeItems.filter((item) =>
+      let result = storeData.storeItems.filter((item) =>
         item.title.toLowerCase().includes(searchText.toLowerCase())
       );
-      setNewArray(newArrayResult);
+      setNewArray(result);
+      setResultText(true);
     } else {
-      setResultText("");
+      setResultText(false);
     }
   };
 
@@ -63,19 +59,19 @@ const ShopPage = () => {
       <div className={`${styles["choosed-items"]}`}>
         <label className={`${styles["checkbox-item"]}`}>
           <input type="checkbox" />
-          Men
+          Clothes
         </label>
         <label className={`${styles["checkbox-item"]}`}>
           <input type="checkbox" />
-          Women
+          Electronics
         </label>
         <label className={`${styles["checkbox-item"]}`}>
           <input type="checkbox" />
-          Kids
+          Furniture
         </label>
         <label className={`${styles["checkbox-item"]}`}>
           <input type="checkbox" />
-          Trending
+          Shoes
         </label>
       </div>
       {resultText ? (
