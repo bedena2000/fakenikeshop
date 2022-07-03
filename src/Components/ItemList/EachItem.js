@@ -1,65 +1,69 @@
-import React, { useContext, useState, useEffect } from "react";
+import * as React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Context from "../../Context/Context";
-import { Skeleton } from "@mui/material";
 import styles from "./EachItem.module.css";
+import { NavLink } from "react-router-dom";
+import { data } from "autoprefixer";
 
-export default function MediaCard({ eachItemInfo }) {
-  //   const { category, title, price, description, image } = eachItemInfo;
-  const {
-    storeData: { isLoading },
-  } = useContext(Context);
-  const [loadCard, setLoadCard] = useState(isLoading);
-
-  console.log(eachItemInfo);
-
-  useEffect(() => {
-    console.log(loadCard);
-  }, [isLoading]);
-
+export default function MediaCard({ dataInfo }) {
+  console.log(dataInfo);
   return (
-    <Card className={`${styles["each-card-item"]}`} sx={{ maxWidth: 345 }}>
-      {isLoading ? (
+    <div
+      className={`${styles["each-card-item"]}`}
+      style={{
+        textAlign: "center",
+        marginBottom: "60px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        flexGrow: "1",
+      }}
+    >
+      <div style={{ height: "200px", marginBottom: "40px" }}>
+        <img
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+          }}
+          src={dataInfo.image}
+        />
+      </div>
+      <div>
         <div
           style={{
-            height: "300px",
+            height: "200px",
+            overflow: "scroll",
+            marginBottom: "30px",
           }}
         >
-          <CardMedia
-            component="img"
-            height="100%"
-            width="100%"
-            objectFit="contain"
-            image={eachItemInfo.image}
-            alt="green iguana"
-            style={{
-              height: "100%",
-              maxWidth: "100%",
-              objectFit: "contain"
-            }}
-          />
+          <h3 style={{ fontSize: "24px", color: "red", marginBottom: "20px" }}>
+            {dataInfo.title}
+          </h3>
+          <p style={{ fontSize: "14px", color: "teal", marginBottom: "20px" }}>
+            {dataInfo.description}
+          </p>
         </div>
-      ) : (
-        <Skeleton animation="wave" />
-      )}
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+        <div>
+          <p>price: ${dataInfo.price} </p>
+          <NavLink
+            to="/item"
+            style={{
+              marginTop: "20px",
+              backgroundColor: "teal",
+              padding: "20px",
+              color: "white",
+              borderRadius: "10px",
+            }}
+          >
+            add to cart
+          </NavLink>
+        </div>
+      </div>
+    </div>
   );
 }

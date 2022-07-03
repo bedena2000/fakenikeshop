@@ -5,21 +5,16 @@ import ClipLoader from "react-spinners/ClipLoader";
 import MediaCard from "./EachItem";
 
 const ItemList = ({ itemsArray }) => {
+  console.log(itemsArray);
   return (
     <div className={`${styles["item-list"]}`}>
-      {itemsArray.storeItems.length
-        ? new Array(20).fill(undefined).map((item, index) => {
-            const currentItem = itemsArray.storeItems[index];
-            console.log(currentItem);
-            return (
-              <MediaCard key={currentItem.id} eachItemInfo={currentItem} />
-            );
-          })
-        : new Array(20).fill(undefined).map((item, index) => {
-            const currentItem = itemsArray.storeItems[index];
-            console.log(currentItem);
-            return <MediaCard key={index} />;
-          })}
+      {itemsArray.storeItems.length ? (
+        itemsArray.storeItems.map((item) => {
+          return <MediaCard dataInfo={item}/>; 
+        })
+      ) : (
+        <ClipLoader />
+      )}
     </div>
   );
 };
