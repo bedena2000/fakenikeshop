@@ -5,8 +5,8 @@ import Context from "../Context/Context";
 import ItemList from "../Components/ItemList/ItemList";
 
 const ShopPage = () => {
-  const {storeData, initializeStore} = useContext(Context);
-  const [searchText, setSearchText] = useState(""); 
+  const { storeData = [], initializeStore } = useContext(Context);
+  const [searchText, setSearchText] = useState("");
   console.log(storeData);
   const handleChange = (event) => {
     const { value } = event.target;
@@ -62,7 +62,7 @@ const ShopPage = () => {
         </label>
       </div>
 
-      {/* <ItemList /> */}
+      <ItemList itemsArray={storeData} />
     </div>
   );
 };

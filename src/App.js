@@ -10,12 +10,14 @@ function App() {
   const [storeData, setStoreData] = useState({
     storeItems: [],
     storeCheckBox: "",
+    isLoading: false,
   });
 
   const initializeStore = (itemsArray) => {
     setStoreData({
       ...storeData,
       storeItems: itemsArray,
+      isLoading: true,
     });
   };
 
