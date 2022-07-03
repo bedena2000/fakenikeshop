@@ -8,9 +8,9 @@ const ItemList = ({ itemsArray }) => {
   console.log(itemsArray);
   return (
     <div className={`${styles["item-list"]}`}>
-      {itemsArray.storeItems.length ? (
-        itemsArray.storeItems.map((item) => {
-          return <MediaCard dataInfo={item}/>; 
+      {itemsArray.length ? (
+        itemsArray.map((item) => {
+          return <MediaCard key={item.id} dataInfo={item} />;
         })
       ) : (
         <ClipLoader />

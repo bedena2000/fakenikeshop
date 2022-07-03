@@ -10,7 +10,6 @@ import { NavLink } from "react-router-dom";
 import { data } from "autoprefixer";
 
 export default function MediaCard({ dataInfo }) {
-  console.log(dataInfo);
   return (
     <div
       className={`${styles["each-card-item"]}`}

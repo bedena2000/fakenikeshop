@@ -7,7 +7,8 @@ import ItemList from "../Components/ItemList/ItemList";
 const ShopPage = () => {
   const { storeData = [], initializeStore } = useContext(Context);
   const [searchText, setSearchText] = useState("");
-  console.log(storeData);
+  const [resultText, setResultText] = useState("");
+  const [newArray, setNewArray] = useState([]);
   const handleChange = (event) => {
     const { value } = event.target;
     setSearchText(value);
@@ -22,7 +23,23 @@ const ShopPage = () => {
   const onBlurText = () => {
     // get items logic
     if (searchText) {
+      setResultText(searchText);
+      let myType = storeData.storeItems.filter((item) =>
+        item.title.includes(searchText.toLowerCase())
+      );
+      console.log(myType);
+      console.log(resultText);
+      console.log(searchText);
+      let allTextFields = storeData.storeItems.filter((item) =>
+        item.title.includes(searchText)
+      );
+      console.log(allTextFields);
+      const newArrayResult = storeData.storeItems.filter((item) =>
+        item.title.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setNewArray(newArrayResult);
     } else {
+      setResultText("");
     }
   };
 
@@ -61,8 +78,11 @@ const ShopPage = () => {
           Trending
         </label>
       </div>
-
-      <ItemList itemsArray={storeData} />
+      {resultText ? (
+        <ItemList itemsArray={newArray} />
+      ) : (
+        <ItemList itemsArray={storeData.storeItems} />
+      )}
     </div>
   );
 };
