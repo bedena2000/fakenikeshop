@@ -5,7 +5,6 @@ import ClipLoader from "react-spinners/ClipLoader";
 import MediaCard from "./EachItem";
 
 const ItemList = ({ itemsArray }) => {
-  console.log(itemsArray);
   return (
     <div className={`${styles["item-list"]}`}>
       {itemsArray.length ? (

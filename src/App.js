@@ -11,6 +11,7 @@ function App() {
     storeItems: [],
     storeCheckBox: "",
     isLoading: false,
+    checker: undefined,
   });
 
   const initializeStore = (itemsArray) => {
@@ -21,8 +22,18 @@ function App() {
     });
   };
 
+  const checkerInitial = (checkerValue, checkerNumber) => {
+    setStoreData({
+      ...storeData,
+      checker: {
+        checkerValue,
+        checkerNumber,
+      },
+    });
+  };
+
   return (
-    <Context.Provider value={{ storeData, initializeStore }}>
+    <Context.Provider value={{ storeData, initializeStore, checkerInitial }}>
       <div className="container">
         <Header />
         <Routes>
