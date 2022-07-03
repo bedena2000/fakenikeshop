@@ -32,6 +32,7 @@ const ShopPage = () => {
       let result = storeData.storeItems.filter((item) =>
         item.title.toLowerCase().includes(searchText.toLowerCase())
       );
+      console.log(result);
       setNewArray(result);
       setResultText(true);
     } else {
