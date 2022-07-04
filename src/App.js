@@ -39,7 +39,7 @@ function App() {
   const modifyCart = (item) => {
     let itemChecker = false;
     let findCart = storeData.cartItems.forEach((subItem) => {
-      if (subItem.id === item.id) {
+      if (subItem.value.id === item.id) {
         itemChecker = true;
       }
     });
@@ -47,9 +47,13 @@ function App() {
     if (itemChecker) {
       return;
     } else {
-      console.log("not include");
+      let newObjectOfData = {
+        value: item,
+        counter: 1,
+        price: item.price,
+      };
       let newArray = storeData.cartItems;
-      newArray.push(item);
+      newArray.push(newObjectOfData);
       setStoreData({
         ...storeData,
         cartItems: newArray,
@@ -57,11 +61,37 @@ function App() {
     }
   };
 
+  const findAndIncrease = (item) => {
+    const prevArray = storeData.cartItems;
+    const findItemElement = prevArray.filter(
+      (newItem) => newItem.value.id === item.id
+    )[0];
+    console.log(findItemElement);
+    const newArrayOfItem = prevArray.filter(
+      (subItem) => subItem.value.id !== item.id
+    );
+    const newProperty = {
+      ...findItemElement,
+      counter: findItemElement.counter + 1,
+    };
+    console.log(newProperty);
+    console.log(newArrayOfItem);
+    console.log(prevArray);
+  };
+
+  const findAndDecrease = (item) => {};
+
   const ItemDescribe = React.lazy(() => import("./Pages/ItemDescribe"));
 
   return (
     <Context.Provider
-      value={{ storeData, initializeStore, checkerInitial, modifyCart }}
+      value={{
+        storeData,
+        initializeStore,
+        checkerInitial,
+        modifyCart,
+        findAndIncrease,
+      }}
     >
       <div className="container">
         <Header />
