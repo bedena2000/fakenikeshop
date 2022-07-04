@@ -8,8 +8,11 @@ import Typography from "@mui/material/Typography";
 import styles from "./EachItem.module.css";
 import { NavLink } from "react-router-dom";
 import { data } from "autoprefixer";
+import Context from "../../Context/Context";
+import { useContext } from "react";
 
 export default function MediaCard({ dataInfo }) {
+  const { modifyCart } = useContext(Context);
   return (
     <div
       className={`${styles["each-card-item"]}`}
@@ -35,8 +38,8 @@ export default function MediaCard({ dataInfo }) {
       <div>
         <div
           style={{
-            height: "200px",
-            overflow: "scroll",
+            // height: "200px",
+            // overflow: "scroll",
             marginBottom: "30px",
           }}
         >
@@ -51,9 +54,9 @@ export default function MediaCard({ dataInfo }) {
           >
             {dataInfo.title}
           </NavLink>
-          <p style={{ fontSize: "14px", color: "teal", marginBottom: "20px" }}>
+          {/* <p style={{ fontSize: "14px", color: "teal", marginBottom: "20px" }}>
             {dataInfo.description}
-          </p>
+          </p> */}
         </div>
         <div>
           <p
@@ -64,7 +67,7 @@ export default function MediaCard({ dataInfo }) {
             price: ${dataInfo.price}{" "}
           </p>
           <NavLink
-            to="/item"
+            to="/cart"
             style={{
               marginTop: "20px",
               backgroundColor: "teal",
@@ -72,6 +75,7 @@ export default function MediaCard({ dataInfo }) {
               color: "white",
               borderRadius: "10px",
             }}
+            onClick={() => modifyCart(dataInfo)}
           >
             add to cart
           </NavLink>

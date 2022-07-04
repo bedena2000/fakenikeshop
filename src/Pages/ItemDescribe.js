@@ -7,12 +7,10 @@ import { useContext } from "react";
 
 const ItemDescribe = () => {
   const { id } = useParams();
-  const { storeData } = useContext(Context);
+  const { storeData, modifyCart } = useContext(Context);
   const myItem = storeData.storeItems.filter(
     (item) => item.id === parseInt(id)
   )[0];
-  console.log(storeData.storeItems);
-  console.log("my item", myItem);
 
   return (
     <>
@@ -64,15 +62,16 @@ const ItemDescribe = () => {
             }}
           >
             <NavLink
-              className={`${styles['item-describe-btn']}`}
+              className={`${styles["item-describe-btn"]}`}
               to="/cart"
-            //   style={{
-            //     background: "teal",
-            //     padding: "20px",
-            //     width: "100%",
-            //     textAlign: "center",
-            //     color: "white",
-            //   }}
+              //   style={{
+              //     background: "teal",
+              //     padding: "20px",
+              //     width: "100%",
+              //     textAlign: "center",
+              //     color: "white",
+              //   }}
+              onClick={() => modifyCart(myItem)}
             >
               Add to cart button
             </NavLink>
