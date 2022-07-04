@@ -40,9 +40,17 @@ export default function MediaCard({ dataInfo }) {
             marginBottom: "30px",
           }}
         >
-          <h3 style={{ fontSize: "24px", color: "red", marginBottom: "20px" }}>
+          <NavLink
+            to={`/shop/${dataInfo.id}`}
+            style={{
+              fontSize: "24px",
+              color: "red",
+              marginBottom: "20px",
+              cursor: "pointer",
+            }}
+          >
             {dataInfo.title}
-          </h3>
+          </NavLink>
           <p style={{ fontSize: "14px", color: "teal", marginBottom: "20px" }}>
             {dataInfo.description}
           </p>

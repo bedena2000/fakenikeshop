@@ -3,6 +3,7 @@ import styles from "./ShopPage.module.css";
 import { BiSearchAlt } from "react-icons/bi";
 import Context from "../Context/Context";
 import ItemList from "../Components/ItemList/ItemList";
+import { Outlet } from "react-router-dom";
 
 const findItem = async (name) => {
   const data = await fetch(name);
