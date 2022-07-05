@@ -10,3 +10,5 @@ Live Demo: <a href="https://fake-nike-e-commerce.netlify.app/">FAKE E-COMMERCE</
 <a href="https://react-icons.github.io/react-icons/">React Icons</a> <br>
 <h2>Design </h2>
 <a href="https://www.figma.com/file/PMEgiHZvuPdhAgTmtoAbSI/EcommerceHeaderExplorations?node-id=0%3A1">Figma</a>
+<h2>API</h2>
+<a href="https://fakeapi.platzi.com/">Fake e-commerce api</a>
