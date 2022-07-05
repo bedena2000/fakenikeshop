@@ -13,13 +13,14 @@ const ItemDescribe = () => {
   )[0];
 
   return (
-    <>
+    <div className="item-description-wrapper">
       <div
         style={{
           marginTop: "60px",
           display: "flex",
           gap: "30px",
         }}
+        className="item-description"
       >
         <div>
           <img
@@ -45,14 +46,16 @@ const ItemDescribe = () => {
               {myItem.title}
             </h1>
 
-            <p
-              style={{
-                width: "400px",
-                fontSize: "20px",
-              }}
-            >
-              {myItem.description}
-            </p>
+            <div className="item-describe-description">
+              <p
+                style={{
+                  width: "400px",
+                  fontSize: "20px",
+                }}
+              >
+                {myItem.description}
+              </p>
+            </div>
           </div>
           <div
             style={{
@@ -85,7 +88,7 @@ const ItemDescribe = () => {
       >
         Price: ${myItem.price}
       </p>
-    </>
+    </div>
   );
 };
 

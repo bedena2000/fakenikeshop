@@ -46,11 +46,18 @@ li {
 /* Media Queries */
 
 @media screen and (max-width: 1200px) {
+  .header {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
   .nav {
     display: none;
   }
+  .logo-element a img {
+    max-width: 100px;
+  }
   .logo-element {
-    display: none;
+    margin-right: 0px !important;
   }
   .main {
     flex-direction: column;
@@ -68,5 +75,15 @@ li {
   }
   .shop-page > .shoop-page-choosed-items {
     flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .item-description-wrapper > .item-description {
+    flex-direction: column !important;
+  }
+  .item-describe-description p {
+    width: auto !important;
+    margin-bottom: 20px;
   }
 }
