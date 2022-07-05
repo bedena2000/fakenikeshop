@@ -45,7 +45,6 @@ function App() {
         itemChecker = true;
       }
     });
-    console.log(itemChecker);
     if (itemChecker) {
       return;
     } else {

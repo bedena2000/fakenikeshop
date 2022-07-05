@@ -6,7 +6,6 @@ import Context from "../Context/Context";
 const CartPage = () => {
   const { storeData } = useContext(Context);
   const [fullAmount, setFullAmount] = useState(0);
-  console.log(storeData.cartItems);
   useEffect(() => {
     let fullAmountPrice = 0;
     storeData.cartItems.map((item) => {
