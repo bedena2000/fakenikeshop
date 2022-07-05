@@ -49,7 +49,7 @@ const Header = () => {
           </NavLink>
         </nav>
       </div>
-      <div className={`${styles["logo-element"]}`}>
+      <div className={`${styles["logo-element"]} logo-element`}>
         <NavLink to="/">
           <img className="logo" src={Logo} />
         </NavLink>

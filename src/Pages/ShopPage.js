@@ -33,7 +33,6 @@ const ShopPage = () => {
   };
 
   useEffect(() => {
-    console.log("chceker changed");
     fetch(`https://api.escuelajs.co/api/v1/products?offset=0&limit=30`)
       .then((res) => res.json())
       .then((json) => initializeStore(json));
@@ -45,7 +44,6 @@ const ShopPage = () => {
       let result = storeData.storeItems.filter((item) =>
         item.title.toLowerCase().includes(searchText.toLowerCase())
       );
-      console.log(result);
       setNewArray(result);
       setResultText(true);
     } else {
@@ -58,14 +56,13 @@ const ShopPage = () => {
     const dataNumber = event.target.dataset.number;
     checkerInitial(name, dataNumber);
     setChecker(name);
-    console.log(storeData.checker);
     fetch(`https://api.escuelajs.co/api/v1/categories/${dataNumber}/products`)
       .then((data) => data.json())
       .then((result) => initializeStore(result));
   };
 
   return (
-    <div className={`${styles["shop"]}`}>
+    <div className={`${styles["shop"]} shop-page`}>
       <div className={`${styles["shop-search-form"]}`}>
         <input
           type="text"
@@ -81,7 +78,7 @@ const ShopPage = () => {
         />
       </div>
 
-      <div className={`${styles["choosed-items"]}`}>
+      <div className={`${styles["choosed-items"]} shoop-page-choosed-items`}>
         <label className={`${styles["checkbox-item"]}`}>
           <input
             onClick={checkerInfo}

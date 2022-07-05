@@ -9,8 +9,8 @@ import footerImg3 from "../../img/category3.png";
 const Main = () => {
   return (
     <>
-      <main className={`${styles.main}`}>
-        <div className={`${styles["main-left"]}`}>
+      <main className={`${styles.main} main`}>
+        <div className={`${styles["main-left"]} main-top`}>
           <p className={`${styles["main-left-describe"]}`}>
             TRENDING COLLECTION 2022
           </p>
@@ -23,12 +23,12 @@ const Main = () => {
             <button className={`${styles["main-left-btn"]}`}>Shop Page</button>
           </NavLink>
         </div>
-        <div className={`${styles["main-right"]}`}>
-          <img className={`${styles["main-right-image"]}`} src={Image} />
+        <div className={`${styles["main-right"]} main-top-image`}>
+          <img className={`${styles["main-right-image"]} main-top-image-src`} src={Image} />
         </div>
       </main>
-      <div className={`${styles["footer"]}`}>
-        <NavLink className={`${styles["footer-item"]}`} to="/shop">
+      <div className={`${styles["footer"]} main-footer`}>
+        <NavLink className={`${styles["footer-item"]} main-footer-link`} to="/shop">
           <img src={footerImg1} />
         </NavLink>
         <NavLink className={`${styles["footer-item"]}`} to="/shop">
