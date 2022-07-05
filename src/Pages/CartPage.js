@@ -24,7 +24,7 @@ const CartPage = () => {
           marginTop: "32px",
         }}
       >
-        Full: ${fullAmount}
+        Full Amount: ${fullAmount}
       </h2>
       <div
         style={{

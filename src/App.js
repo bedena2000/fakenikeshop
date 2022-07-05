@@ -35,7 +35,6 @@ function App() {
       },
     });
   };
-  console.log("cart items", storeData.cartItems);
   const modifyCart = (item) => {
     let itemChecker = false;
     let findCart = storeData.cartItems.forEach((subItem) => {
@@ -62,9 +61,7 @@ function App() {
   };
 
   const findAndIncrease = (item) => {
-    console.log(item);
     const prevArray = storeData.cartItems;
-    console.log(prevArray);
     const newArray = prevArray.map((subItem) => {
       if (subItem.value.id === item.id) {
         const newValue = {
@@ -90,9 +87,7 @@ function App() {
       return;
     } else {
       if (item.counter !== 1) {
-        console.log(item);
         const prevArray = storeData.cartItems;
-        console.log(prevArray);
         const newArray = prevArray.map((subItem) => {
           if (subItem.value.id === item.id) {
             const newValue = {
@@ -112,6 +107,16 @@ function App() {
     }
   };
 
+  const deleteItem = (item) => {
+    let resultArray = storeData.cartItems.filter(
+      (subItem) => subItem.value.id !== item.id
+    );
+    setStoreData({
+      ...storeData,
+      cartItems: resultArray,
+    });
+  };
+
   const ItemDescribe = React.lazy(() => import("./Pages/ItemDescribe"));
 
   return (
@@ -123,6 +128,7 @@ function App() {
         modifyCart,
         findAndIncrease,
         findAndDecrease,
+        deleteItem,
       }}
     >
       <div className="container">
