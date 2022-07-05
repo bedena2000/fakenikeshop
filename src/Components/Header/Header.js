@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Header.module.css";
 import { AiOutlineMenu } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import Logo from "../../img/logo.svg";
 import { FiSearch } from "react-icons/fi";
 import { BsCart2 } from "react-icons/bs";
+import Context from "../../Context/Context";
 
 const Header = () => {
   return (
@@ -14,16 +15,36 @@ const Header = () => {
           <AiOutlineMenu className={`${styles["menu-icon"]}`} />
         </NavLink>
         <nav className="nav">
-          <NavLink className={`${styles["nav-link"]}`} to="/shop">
+          <NavLink
+            data-number={1}
+            data-checkerText="clothes"
+            className={`${styles["nav-link"]}`}
+            to="/shop"
+          >
             Clothes
           </NavLink>
-          <NavLink className={`${styles["nav-link"]}`} to="/shop">
+          <NavLink
+            data-number={2}
+            data-checkerText="electronics"
+            className={`${styles["nav-link"]}`}
+            to="/shop"
+          >
             Electronics
           </NavLink>
-          <NavLink className={`${styles["nav-link"]}`} to="/shop">
+          <NavLink
+            data-number={3}
+            data-checkerText="furniture"
+            className={`${styles["nav-link"]}`}
+            to="/shop"
+          >
             Furniture
           </NavLink>
-          <NavLink className={`${styles["nav-link"]}`} to="/shop">
+          <NavLink
+            data-number={4}
+            data-checkerText="shoes"
+            className={`${styles["nav-link"]}`}
+            to="/shop"
+          >
             Shoes
           </NavLink>
         </nav>

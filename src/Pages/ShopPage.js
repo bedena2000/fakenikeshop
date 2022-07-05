@@ -33,6 +33,7 @@ const ShopPage = () => {
   };
 
   useEffect(() => {
+    console.log("chceker changed");
     fetch(`https://api.escuelajs.co/api/v1/products?offset=0&limit=30`)
       .then((res) => res.json())
       .then((json) => initializeStore(json));
@@ -57,6 +58,7 @@ const ShopPage = () => {
     const dataNumber = event.target.dataset.number;
     checkerInitial(name, dataNumber);
     setChecker(name);
+    console.log(storeData.checker);
     fetch(`https://api.escuelajs.co/api/v1/categories/${dataNumber}/products`)
       .then((data) => data.json())
       .then((result) => initializeStore(result));

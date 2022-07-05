@@ -15,7 +15,10 @@ function App() {
     cartItems: [],
     storeCheckBox: "",
     isLoading: false,
-    checker: undefined,
+    checker: {
+      checkerValue: "",
+      checkerNumber: undefined,
+    },
   });
 
   const initializeStore = (itemsArray) => {
