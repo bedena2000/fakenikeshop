@@ -4,7 +4,7 @@ import { AiOutlineMinusSquare } from "react-icons/ai";
 import Context from "../Context/Context";
 
 const CartItem = (itemsProps) => {
-  const { findAndIncrease } = useContext(Context);
+  const { findAndIncrease, findAndDecrease } = useContext(Context);
   return (
     <div
       style={{
@@ -74,6 +74,7 @@ const CartItem = (itemsProps) => {
             fontSize: "30px",
             cursor: "pointer",
           }}
+          onClick={() => findAndDecrease(itemsProps.itemsProps.value)}
         />
       </div>
     </div>

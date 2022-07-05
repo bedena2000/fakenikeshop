@@ -62,24 +62,55 @@ function App() {
   };
 
   const findAndIncrease = (item) => {
+    console.log(item);
     const prevArray = storeData.cartItems;
-    const findItemElement = prevArray.filter(
-      (newItem) => newItem.value.id === item.id
-    )[0];
-    console.log(findItemElement);
-    const newArrayOfItem = prevArray.filter(
-      (subItem) => subItem.value.id !== item.id
-    );
-    const newProperty = {
-      ...findItemElement,
-      counter: findItemElement.counter + 1,
-    };
-    console.log(newProperty);
-    console.log(newArrayOfItem);
     console.log(prevArray);
+    const newArray = prevArray.map((subItem) => {
+      if (subItem.value.id === item.id) {
+        const newValue = {
+          ...subItem,
+          counter: subItem.counter + 1,
+        };
+        return newValue;
+      } else {
+        return subItem;
+      }
+    });
+    setStoreData({
+      ...storeData,
+      cartItems: newArray,
+    });
   };
 
-  const findAndDecrease = (item) => {};
+  const findAndDecrease = (item) => {
+    const findThatItem = storeData.cartItems.filter(
+      (subItem) => subItem.value.id === item.id
+    )[0];
+    if (findThatItem.counter === 1) {
+      return;
+    } else {
+      if (item.counter !== 1) {
+        console.log(item);
+        const prevArray = storeData.cartItems;
+        console.log(prevArray);
+        const newArray = prevArray.map((subItem) => {
+          if (subItem.value.id === item.id) {
+            const newValue = {
+              ...subItem,
+              counter: subItem.counter - 1,
+            };
+            return newValue;
+          } else {
+            return subItem;
+          }
+        });
+        setStoreData({
+          ...storeData,
+          cartItems: newArray,
+        });
+      }
+    }
+  };
 
   const ItemDescribe = React.lazy(() => import("./Pages/ItemDescribe"));
 
@@ -91,6 +122,7 @@ function App() {
         checkerInitial,
         modifyCart,
         findAndIncrease,
+        findAndDecrease,
       }}
     >
       <div className="container">
